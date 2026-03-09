@@ -36,3 +36,12 @@ export type { TabsProps, TabItem } from './Tabs';
 
 export { Slider } from './Slider';
 export type { SliderProps } from './Slider';
+
+export { Modal } from './Modal';
+export type { ModalProps } from './Modal';
+
+export { Overlay } from './Overlay';
+export type { OverlayProps } from './Overlay';
+
+export { Grid } from './Grid';
+export type { GridProps } from './Grid';
