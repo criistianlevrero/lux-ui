@@ -5,6 +5,32 @@ Librería de componentes agnósticos de LuxSequencer para reutilizar en:
 - proyecto de gestión de sets grabados
 - marketplace
 
+## Orquestación y uso en el monorepo LuxSequencer
+
+Esta librería forma parte de la arquitectura de LuxSequencer, junto a:
+
+- **luxsequencer-core**: App principal
+- **core-renderers**: Renderers oficiales
+- **luxsequencer-cloud**: Plataforma cloud y marketplace
+
+### Instalación y enlace local
+
+1. Instala dependencias:
+   ```bash
+   npm install
+   ```
+2. Compila la librería para desarrollo local:
+   ```bash
+   npm run build # o npm link
+   ```
+3. En los proyectos que consumen lux-ui (core, cloud):
+   ```bash
+   npm link lux-ui # o usa path local en package.json
+   ```
+
+> Mantén adapters locales por app para i18n, analytics y side-effects.
+
+---
 ## Objetivo
 Centralizar primitives/composites/patterns visuales sin lógica de dominio (MIDI, store de app, renderer config específica).
 
