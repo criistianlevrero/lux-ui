@@ -1,0 +1,20 @@
+{
+  "port": 61000,
+  "host": "127.0.0.1",
+  "basePath": "/",
+  "outDir": "dist-ladle",
+  "autoGenerateStories": false,
+  "hotUpdate": true,
+  "strictMode": true,
+  "addons": {
+    "ladle.control": {
+      "enabled": true
+    },
+    "ladle.shortcuts": {
+      "enabled": true
+    },
+    "ladle.theme-switcher": {
+      "enabled": true
+    }
+  }
+}

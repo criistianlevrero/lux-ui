@@ -15,10 +15,12 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./styles.css": "./src/foundation/styles.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "src/foundation/styles.css"
   ],
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
@@ -26,25 +28,39 @@
     "lint": "eslint . --ext ts,tsx --max-warnings 0",
     "lint:fix": "eslint . --ext ts,tsx --fix",
     "test": "vitest",
-    "test:run": "vitest run"
+    "test:run": "vitest run",
+    "ladle:dev": "ladle serve",
+    "ladle:build": "ladle build",
+    "ladle:preview": "ladle build && ladle serve -p 61000 -c dist-ladle",
+    "playwright:test": "playwright test",
+    "playwright:test:ui": "playwright test --ui",
+    "dev": "npm run ladle:dev"
   },
   "peerDependencies": {
+    "@headlessui/react": "^2.2.9",
     "react": ">=18",
-    "react-dom": ">=18",
-    "@headlessui/react": "^2.2.9"
+    "react-dom": ">=18"
   },
   "devDependencies": {
+    "@headlessui/react": "^2.2.9",
+    "@ladle/react": "^5.1.1",
+    "@playwright/test": "^1.58.2",
+    "@tailwindcss/vite": "^4.2.1",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
-    "@typescript-eslint/eslint-plugin": "^8.54.0",
-    "@typescript-eslint/parser": "^8.54.0",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
+    "@typescript-eslint/eslint-plugin": "^8.54.0",
+    "@typescript-eslint/parser": "^8.54.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "daisyui": "^5.5.19",
     "eslint": "^9.39.2",
     "eslint-plugin-react-hooks": "^7.0.1",
     "jsdom": "^28.1.0",
+    "tailwindcss": "^4.2.1",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3",
+    "vite": "^7.3.1",
     "vitest": "^4.0.18"
   }
 }
