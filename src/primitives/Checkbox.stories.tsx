@@ -1,6 +1,7 @@
 import React from "react";
 import { Meta, Story } from "@ladle/react";
 import Checkbox from "./Checkbox";
+import { ComponentDocs } from "../foundation/ladleDocs";
 
 export default {
   title: "Primitives / Checkbox",
@@ -38,3 +39,18 @@ export const States: Story = () => {
     </div>
   );
 };
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="Checkbox"
+    usage={`const [checked, setChecked] = React.useState(false);
+
+<Checkbox checked={checked} onChange={setChecked} label="Enable loop mode" />`}
+    inputs={[
+      { name: "checked", type: "boolean", required: true, description: "Current checked state." },
+      { name: "onChange", type: "(checked: boolean) => void", required: true, description: "State change callback." },
+      { name: "label", type: "ReactNode", required: false, description: "Optional label content." },
+      { name: "disabled", type: "boolean", required: false, defaultValue: "false", description: "Disables interaction." },
+    ]}
+  />
+);

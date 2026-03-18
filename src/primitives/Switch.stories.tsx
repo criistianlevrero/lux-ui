@@ -2,6 +2,7 @@ import React from "react";
 import { Meta, Story } from "@ladle/react";
 import { Card } from "./Card";
 import { Switch } from "./Switch";
+import { ComponentDocs } from "../foundation/ladleDocs";
 
 export default {
   title: "Primitives / Switch",
@@ -54,4 +55,25 @@ export const DisabledState: Story = () => (
   <div className="max-w-lg bg-gray-900 p-6 text-gray-100">
     <Switch checked onChange={() => undefined} disabled label="Locked setting" description="Shown when a feature is not editable." />
   </div>
+);
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="Switch"
+    usage={`const [enabled, setEnabled] = React.useState(false);
+
+<Switch
+  checked={enabled}
+  onChange={setEnabled}
+  label="Show stats"
+  description="Toggle setting"
+/>`}
+    inputs={[
+      { name: "checked", type: "boolean", required: true, description: "Current on/off state." },
+      { name: "onChange", type: "(checked: boolean) => void", required: true, description: "State update callback." },
+      { name: "size", type: "'sm' | 'md'", required: false, defaultValue: "'md'", description: "Track and thumb size." },
+      { name: "label", type: "string", required: false, description: "Primary row label." },
+      { name: "description", type: "string", required: false, description: "Secondary helper text." },
+    ]}
+  />
 );

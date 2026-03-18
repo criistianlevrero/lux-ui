@@ -2,6 +2,7 @@ import React from "react";
 import { Meta, Story } from "@ladle/react";
 import Button from "./Button";
 import { Sheet } from "./Sheet";
+import { ComponentDocs } from "../foundation/ladleDocs";
 
 export default {
   title: "Primitives / Sheet",
@@ -47,3 +48,18 @@ export const BottomConsole: Story = () => {
     </div>
   );
 };
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="Sheet"
+    usage={`<Sheet open={open} side="left" className="w-full max-w-md">
+  <div>Drawer content</div>
+</Sheet>`}
+    inputs={[
+      { name: "open", type: "boolean", required: true, description: "Controls open/closed transform state." },
+      { name: "side", type: "'left' | 'right' | 'top' | 'bottom'", required: false, defaultValue: "'left'", description: "Slide direction." },
+      { name: "children", type: "ReactNode", required: false, description: "Sheet content." },
+      { name: "className", type: "string", required: false, description: "Additional classes for size/layout." },
+    ]}
+  />
+);

@@ -3,6 +3,7 @@ import { Meta, Story } from "@ladle/react";
 import { Card } from "./Card";
 import { FieldLabel } from "./FieldLabel";
 import { Slider } from "./Slider";
+import { ComponentDocs } from "../foundation/ladleDocs";
 
 export default {
   title: "Primitives / Slider",
@@ -42,3 +43,25 @@ export const InterpolationSpeed: Story = () => {
     </Card>
   );
 };
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="Slider"
+    usage={`const [value, setValue] = React.useState(120);
+
+<Slider
+  min={60}
+  max={200}
+  step={1}
+  value={value}
+  onChange={(event) => setValue(Number(event.target.value))}
+/>`}
+    inputs={[
+      { name: "value", type: "number | string", required: false, description: "Current slider value." },
+      { name: "onChange", type: "(event) => void", required: false, description: "Callback for value updates." },
+      { name: "min", type: "number", required: false, description: "Minimum allowed value." },
+      { name: "max", type: "number", required: false, description: "Maximum allowed value." },
+      { name: "step", type: "number", required: false, description: "Increment resolution." },
+    ]}
+  />
+);

@@ -1,6 +1,7 @@
 import React from "react";
 import { Meta, Story } from "@ladle/react";
 import SliderInput from "./SliderInput";
+import { ComponentDocs } from "../foundation/ladleDocs";
 
 export default {
   title: "Composites / SliderInput",
@@ -42,3 +43,26 @@ export const InterpolationControl: Story = () => {
     </div>
   );
 };
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="SliderInput"
+    usage={`const [value, setValue] = React.useState(128);
+
+<SliderInput
+  label="BPM"
+  value={value}
+  min={60}
+  max={200}
+  step={1}
+  onChange={(event) => setValue(Number(event.target.value))}
+/>`}
+    inputs={[
+      { name: "label", type: "string", required: true, description: "Field label text." },
+      { name: "value", type: "number", required: true, description: "Current slider value." },
+      { name: "onChange", type: "(event) => void", required: true, description: "Change callback from internal slider." },
+      { name: "min/max/step", type: "number", required: true, description: "Slider numeric range configuration." },
+      { name: "valueFormatter", type: "(value: number) => string", required: false, description: "Custom right-side value text." },
+    ]}
+  />
+);

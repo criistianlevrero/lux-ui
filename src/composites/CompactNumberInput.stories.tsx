@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@ladle/react';
 import { CompactNumberInput } from './CompactNumberInput';
+import { ComponentDocs } from '../foundation/ladleDocs';
 
 export default {
   title: 'Composites / CompactNumberInput',
@@ -45,3 +46,24 @@ export const HslChannels: Story = () => {
     </div>
   );
 };
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="CompactNumberInput"
+    usage={`const [value, setValue] = React.useState(128);
+
+<CompactNumberInput
+  value={value}
+  min={0}
+  max={255}
+  onChange={(event) => setValue(Number(event.target.value))}
+/>`}
+    inputs={[
+      { name: "value", type: "number | string", required: false, description: "Current input value." },
+      { name: "onChange", type: "(event) => void", required: false, description: "Change callback." },
+      { name: "min", type: "number", required: false, description: "Minimum numeric value." },
+      { name: "max", type: "number", required: false, description: "Maximum numeric value." },
+      { name: "type", type: "'number' | 'text'", required: false, defaultValue: "'number'", description: "HTML input type." },
+    ]}
+  />
+);

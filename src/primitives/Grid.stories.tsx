@@ -1,5 +1,6 @@
 import { Meta, Story } from "@ladle/react";
 import { Grid } from "./Grid";
+import { ComponentDocs } from "../foundation/ladleDocs";
 
 export default {
   title: "Primitives / Grid",
@@ -17,4 +18,20 @@ export const DashboardTiles: Story = () => (
       ))}
     </Grid>
   </div>
+);
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="Grid"
+    usage={`<Grid columns={{ md: 2, xl: 3 }} gap="1rem">
+  <div>Tile 1</div>
+  <div>Tile 2</div>
+</Grid>`}
+    inputs={[
+      { name: "children", type: "ReactNode", required: true, description: "Grid items to render." },
+      { name: "columns", type: "number | { sm?: number; md?: number; lg?: number; xl?: number }", required: false, defaultValue: "1", description: "Column definition (fixed or responsive)." },
+      { name: "gap", type: "string", required: false, defaultValue: "'1rem'", description: "CSS gap value." },
+      { name: "className", type: "string", required: false, description: "Additional classes." },
+    ]}
+  />
 );

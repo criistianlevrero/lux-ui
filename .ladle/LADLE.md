@@ -47,6 +47,9 @@ vite.config.ts
 - colocar la story junto al componente
 - modelar los escenarios según usos reales de `luxsequencer-core`
 - preferir fondos, spacing y layout similares al `core`
+- incluir una story `Documentation` por componente con:
+  - snippet copy/paste
+  - tabla de `inputs` principales (prop, tipo, required, default, descripción)
 
 Ejemplo base:
 
@@ -60,7 +63,21 @@ export default {
 } satisfies Meta;
 
 export const Default: Story = () => <MyComponent />;
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="MyComponent"
+    usage={`<MyComponent />`}
+    inputs={[
+      { name: "value", type: "string", required: true, description: "Descripción corta" },
+    ]}
+  />
+);
 ```
+
+Helper reutilizable:
+
+- `src/foundation/ladleDocs.tsx` (`ComponentDocs`)
 
 ## Theming y estilos
 

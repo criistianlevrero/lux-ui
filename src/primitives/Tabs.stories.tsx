@@ -1,6 +1,7 @@
 import React from "react";
 import { Meta, Story } from "@ladle/react";
 import { Tabs } from "./Tabs";
+import { ComponentDocs } from "../foundation/ladleDocs";
 
 const items = [
   { value: "stats", label: "Stats" },
@@ -25,3 +26,22 @@ export const DebugOverlayTabs: Story = () => {
     </div>
   );
 };
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="Tabs"
+    usage={`const [active, setActive] = React.useState("stats");
+
+<Tabs
+  items={[{ value: "stats", label: "Stats" }]}
+  activeValue={active}
+  onValueChange={setActive}
+/>`}
+    inputs={[
+      { name: "items", type: "TabItem[]", required: true, description: "Tab definitions with value and label." },
+      { name: "activeValue", type: "string", required: true, description: "Currently active tab value." },
+      { name: "onValueChange", type: "(value: string) => void", required: true, description: "Called when tab changes." },
+      { name: "className", type: "string", required: false, description: "Additional wrapper classes." },
+    ]}
+  />
+);

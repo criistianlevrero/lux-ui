@@ -2,6 +2,7 @@ import React from 'react';
 import { Meta, Story } from '@ladle/react';
 import { Button } from '../primitives';
 import { SegmentedGroup } from './SegmentedGroup';
+import { ComponentDocs } from '../foundation/ladleDocs';
 
 export default {
   title: 'Composites / SegmentedGroup',
@@ -43,3 +44,17 @@ export const SequencerStepGroups: Story = () => {
     </div>
   );
 };
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="SegmentedGroup"
+    usage={`<SegmentedGroup>
+  <Button size="sm" variant="primary">8</Button>
+  <Button size="sm" variant="secondary">16</Button>
+</SegmentedGroup>`}
+    inputs={[
+      { name: "children", type: "ReactNode", required: false, description: "Segment items, usually buttons." },
+      { name: "className", type: "string", required: false, description: "Extra wrapper classes." },
+    ]}
+  />
+);

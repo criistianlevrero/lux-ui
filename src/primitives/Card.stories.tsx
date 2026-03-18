@@ -1,5 +1,6 @@
 import { Meta, Story } from "@ladle/react";
 import { Card } from "./Card";
+import { ComponentDocs } from "../foundation/ladleDocs";
 
 export default {
   title: "Primitives / Card",
@@ -42,4 +43,20 @@ export const MetricCards: Story = () => (
       </Card>
     ))}
   </div>
+);
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="Card"
+    usage={`<Card tone="default" padding="md">
+  <h3>Panel title</h3>
+  <p>Panel content</p>
+</Card>`}
+    inputs={[
+      { name: "children", type: "ReactNode", required: false, description: "Card content." },
+      { name: "tone", type: "'default' | 'subtle'", required: false, defaultValue: "'default'", description: "Background intensity." },
+      { name: "padding", type: "'none' | 'sm' | 'md' | 'lg'", required: false, defaultValue: "'md'", description: "Internal spacing preset." },
+      { name: "className", type: "string", required: false, description: "Additional classes." },
+    ]}
+  />
 );

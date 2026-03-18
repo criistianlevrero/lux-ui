@@ -1,6 +1,7 @@
 import React from "react";
 import { Meta, Story } from "@ladle/react";
 import Tooltip from "./Tooltip";
+import { ComponentDocs } from "../foundation/ladleDocs";
 
 export default {
   title: "Primitives / Tooltip",
@@ -26,4 +27,19 @@ export const LongCopy: Story = () => (
       </button>
     </Tooltip>
   </div>
+);
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="Tooltip"
+    usage={`<Tooltip content="Additional help text">
+  <button type="button">?</button>
+</Tooltip>`}
+    inputs={[
+      { name: "content", type: "ReactNode", required: true, description: "Tooltip content." },
+      { name: "children", type: "ReactNode", required: true, description: "Trigger element." },
+      { name: "contentClassName", type: "string", required: false, description: "Extra classes for tooltip body." },
+      { name: "className", type: "string", required: false, description: "Extra classes for wrapper." },
+    ]}
+  />
 );

@@ -2,6 +2,7 @@ import React from "react";
 import { Meta, Story } from "@ladle/react";
 import Button from "./Button";
 import { Overlay } from "./Overlay";
+import { ComponentDocs } from "../foundation/ladleDocs";
 
 export default {
   title: "Primitives / Overlay",
@@ -24,3 +25,16 @@ export const ClickToDismiss: Story = () => {
     </div>
   );
 };
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="Overlay"
+    usage={`<Overlay isVisible={isOpen} onClick={() => setIsOpen(false)} zIndex={40} />`}
+    inputs={[
+      { name: "isVisible", type: "boolean", required: true, description: "Shows or hides the overlay." },
+      { name: "onClick", type: "() => void", required: false, description: "Click handler, typically closes dialogs." },
+      { name: "zIndex", type: "number", required: false, defaultValue: "40", description: "Stack order value." },
+      { name: "className", type: "string", required: false, description: "Additional style classes." },
+    ]}
+  />
+);

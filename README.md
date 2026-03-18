@@ -75,3 +75,28 @@ lux-ui/
 1. Publicar `@luxsequencer/ui`.
 2. Consumir desde `luxsequencer-core` como dependencia normal.
 3. Mantener adapters locales por app para i18n, analytics y side-effects.
+
+## Documentación en Ladle (template automático)
+
+Para agregar rápido una story `Documentation` (copy/paste + inputs) en un componente:
+
+```bash
+npm run ladle:docs:add -- --story src/primitives/Input.stories.tsx --component Input
+```
+
+También funciona para composites:
+
+```bash
+npm run ladle:docs:add -- --story src/composites/SliderInput.stories.tsx --component SliderInput
+```
+
+Opcionales:
+
+- `--import-path @luxsequencer/ui` para cambiar el import mostrado en el snippet.
+- `--force` para reemplazar la sección `Documentation` al regenerar.
+
+Flujo recomendado:
+
+1. Ejecutar el comando para crear la plantilla.
+2. Editar `usage`, `inputs` y `notes` con los props reales del componente.
+3. Validar con `npm run ladle:build`.

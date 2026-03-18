@@ -32,6 +32,7 @@
     "ladle:dev": "ladle serve",
     "ladle:build": "ladle build",
     "ladle:preview": "ladle build && ladle serve -p 61000 -c dist-ladle",
+    "ladle:docs:add": "node ./scripts/add-ladle-docs.mjs",
     "playwright:test": "playwright test",
     "playwright:test:ui": "playwright test --ui",
     "dev": "npm run ladle:dev"

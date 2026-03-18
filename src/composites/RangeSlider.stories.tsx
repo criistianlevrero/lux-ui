@@ -3,6 +3,7 @@ import { Meta, Story } from "@ladle/react";
 import Button from "../primitives/Button";
 import { FieldLabel, Input } from "../primitives";
 import { RangeSlider } from "./RangeSlider";
+import { ComponentDocs } from "../foundation/ladleDocs";
 
 export default {
   title: "Composites / RangeSlider",
@@ -45,3 +46,25 @@ export const PresetRanges: Story = () => {
     </div>
   );
 };
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="RangeSlider"
+    usage={`const [range, setRange] = React.useState({ min: 20, max: 80 });
+
+<RangeSlider
+  min={0}
+  max={100}
+  step={1}
+  value={range}
+  onChange={setRange}
+/>`}
+    inputs={[
+      { name: "min", type: "number", required: true, description: "Global minimum value." },
+      { name: "max", type: "number", required: true, description: "Global maximum value." },
+      { name: "value", type: "{ min: number; max: number } | [number, number]", required: true, description: "Selected range." },
+      { name: "onChange", type: "(value: RangeSliderValue) => void", required: true, description: "Callback when range changes." },
+      { name: "step", type: "number", required: false, description: "Drag snapping interval." },
+    ]}
+  />
+);

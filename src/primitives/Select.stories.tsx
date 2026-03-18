@@ -3,10 +3,11 @@ import { Meta, Story } from "@ladle/react";
 import { Card } from "./Card";
 import { FieldLabel } from "./FieldLabel";
 import { Select } from "./Select";
+import { ComponentDocs } from "../foundation/ladleDocs";
 
 const languageOptions = [
-  { value: "en", label: "English" },
-  { value: "es", label: "Español" },
+  { value: "en", label: "English", icon: <span className="text-base">🇺🇸</span> },
+  { value: "es", label: "Español", icon: <span className="text-base">🇪🇸</span> },
 ];
 
 const rendererOptions = [
@@ -65,3 +66,24 @@ export const NativeOptions: Story = () => {
     </div>
   );
 };
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="Select"
+    usage={`const [value, setValue] = React.useState("webgl");
+
+<Select
+  value={value}
+  onChange={(next) => setValue(String(next))}
+  options={[{ value: "webgl", label: "WebGL" }]}
+  fullWidth
+/>`}
+    inputs={[
+      { name: "value", type: "string | number", required: true, description: "Currently selected value." },
+      { name: "onChange", type: "(value: string | number) => void", required: true, description: "Selection callback." },
+      { name: "options", type: "SelectOption[]", required: false, description: "Options list for Listbox mode." },
+      { name: "placeholder", type: "string", required: false, defaultValue: "'Seleccionar...'", description: "Placeholder text when no value is selected." },
+      { name: "fullWidth", type: "boolean", required: false, defaultValue: "false", description: "Expand component to container width." },
+    ]}
+  />
+);

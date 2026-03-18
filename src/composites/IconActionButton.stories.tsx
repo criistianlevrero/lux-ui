@@ -1,5 +1,6 @@
 import { Meta, Story } from '@ladle/react';
 import { IconActionButton } from './IconActionButton';
+import { ComponentDocs } from '../foundation/ladleDocs';
 
 const SettingsGlyph = () => <span className="text-lg leading-none">⚙</span>;
 const CloseGlyph = () => <span className="text-lg leading-none">✕</span>;
@@ -30,4 +31,21 @@ export const OverlayTone: Story = () => (
       <IconActionButton tone="overlay" icon={<FullscreenGlyph />} title="Exit fullscreen" aria-label="Exit fullscreen" />
     </div>
   </div>
+);
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="IconActionButton"
+    usage={`<IconActionButton
+  icon={<span>⚙</span>}
+  aria-label="Open settings"
+  tone="overlay"
+/>`}
+    inputs={[
+      { name: "icon", type: "ReactNode", required: true, description: "Icon to render inside the button." },
+      { name: "aria-label", type: "string", required: true, description: "Accessible label for icon-only usage." },
+      { name: "tone", type: "'toolbar' | 'overlay'", required: false, defaultValue: "'toolbar'", description: "Preset style flavor." },
+      { name: "onClick", type: "() => void", required: false, description: "Click handler." },
+    ]}
+  />
 );

@@ -2,6 +2,7 @@ import React from "react";
 import { Meta, Story } from "@ladle/react";
 import { FieldLabel } from "./FieldLabel";
 import Textarea from "./Textarea";
+import { ComponentDocs } from "../foundation/ladleDocs";
 
 export default {
   title: "Primitives / Textarea",
@@ -56,3 +57,24 @@ export const ValidationState: Story = () => {
     </div>
   );
 };
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="Textarea"
+    usage={`const [value, setValue] = React.useState("");
+
+<Textarea
+  rows={4}
+  value={value}
+  onChange={(event) => setValue(event.target.value)}
+  placeholder="Write your expression"
+/>`}
+    inputs={[
+      { name: "value", type: "string", required: false, description: "Current textarea value." },
+      { name: "onChange", type: "(event) => void", required: false, description: "Callback when content changes." },
+      { name: "rows", type: "number", required: false, description: "Visible row count." },
+      { name: "placeholder", type: "string", required: false, description: "Hint text while empty." },
+      { name: "disabled", type: "boolean", required: false, defaultValue: "false", description: "Disables editing." },
+    ]}
+  />
+);

@@ -1,5 +1,6 @@
 import { Meta, Story } from "@ladle/react";
 import { FieldLabel } from "./FieldLabel";
+import { ComponentDocs } from "../foundation/ladleDocs";
 
 export default {
   title: "Primitives / FieldLabel",
@@ -23,4 +24,23 @@ export const DetailedControlLabel: Story = () => (
       required
     />
   </div>
+);
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="FieldLabel"
+    usage={`<FieldLabel
+  label="Property expression"
+  description="Explain what this field controls"
+  tooltip="Supports dot notation"
+  required
+/>`}
+    inputs={[
+      { name: "label", type: "ReactNode", required: true, description: "Main label content." },
+      { name: "description", type: "ReactNode", required: false, description: "Secondary helper text." },
+      { name: "tooltip", type: "string", required: false, description: "Help tooltip text." },
+      { name: "required", type: "boolean", required: false, defaultValue: "false", description: "Displays required marker." },
+      { name: "size", type: "'md' | 'sm' | 'xs'", required: false, defaultValue: "'sm'", description: "Label text size preset." },
+    ]}
+  />
 );

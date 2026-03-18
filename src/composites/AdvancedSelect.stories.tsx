@@ -2,6 +2,7 @@ import React from "react";
 import { Meta, Story } from "@ladle/react";
 import { FieldLabel } from "../primitives";
 import { AdvancedSelect } from "./AdvancedSelect";
+import { ComponentDocs } from "../foundation/ladleDocs";
 
 const groupedOptions = [
   { value: "blend", label: "Blend Mode", description: "How layers combine", group: "Visual" },
@@ -36,3 +37,25 @@ export const MultiSelectTags: Story = () => {
     </div>
   );
 };
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="AdvancedSelect"
+    usage={`const [value, setValue] = React.useState("blend");
+
+<AdvancedSelect
+  value={value}
+  onChange={setValue}
+  options={[{ value: "blend", label: "Blend Mode" }]}
+  searchable
+  allowGroups
+/>`}
+    inputs={[
+      { name: "value", type: "any | any[]", required: true, description: "Selected value(s)." },
+      { name: "onChange", type: "(value: any) => void", required: true, description: "Selection callback." },
+      { name: "options", type: "AdvancedSelectOption[]", required: true, description: "Available options list." },
+      { name: "searchable", type: "boolean", required: false, defaultValue: "false", description: "Enables local search input." },
+      { name: "multiSelect", type: "boolean", required: false, defaultValue: "false", description: "Allows selecting multiple values." },
+    ]}
+  />
+);

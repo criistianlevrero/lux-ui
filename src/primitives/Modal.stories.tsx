@@ -2,6 +2,7 @@ import React from "react";
 import { Meta, Story } from "@ladle/react";
 import { Modal } from "./Modal";
 import Button from "./Button";
+import { ComponentDocs } from "../foundation/ladleDocs";
 
 export default {
   title: "Primitives / Modal",
@@ -28,3 +29,20 @@ export const Default: Story<typeof Modal> = () => {
     </>
   );
 };
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="Modal"
+    usage={`const [open, setOpen] = React.useState(false);
+
+<Modal isOpen={open} onClose={() => setOpen(false)} size="md">
+  <div>Modal content</div>
+</Modal>`}
+    inputs={[
+      { name: "isOpen", type: "boolean", required: true, description: "Controls modal visibility." },
+      { name: "onClose", type: "() => void", required: true, description: "Called on ESC or backdrop click." },
+      { name: "children", type: "ReactNode", required: true, description: "Modal body content." },
+      { name: "size", type: "'sm' | 'md' | 'lg' | 'xl' | 'full'", required: false, defaultValue: "'md'", description: "Max width preset." },
+    ]}
+  />
+);

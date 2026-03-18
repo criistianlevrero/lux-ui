@@ -1,7 +1,7 @@
 import React from 'react';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'ghost';
-export type ButtonSize = 'sm' | 'md' | 'lg' | 'icon' | 'circle' | 'fab';
+export type ButtonSize = 'sm' | 'md' | 'lg' | 'icon' | 'circle' | 'fab' | 'lg-icon';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
@@ -26,6 +26,7 @@ const sizeStyles: Record<ButtonSize, string> = {
   icon: 'p-2',
   circle: 'p-3 rounded-full',
   fab: 'w-12 h-12 rounded-full shadow-lg',
+  'lg-icon': 'w-12 h-12 p-0',
 };
 
 export const Button: React.FC<ButtonProps> = ({

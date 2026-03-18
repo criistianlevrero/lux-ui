@@ -1,6 +1,7 @@
 import React from "react";
 import { Meta, Story } from "@ladle/react";
 import Button from "./Button";
+import { ComponentDocs } from "../foundation/ladleDocs";
 
 const StorySection: React.FC<{
   title: string;
@@ -221,4 +222,46 @@ export const CoreUsageCases: Story<typeof Button> = () => (
       </div>
     </StorySection>
   </div>
+);
+
+const PlayGlyph = () => <span className="text-xl leading-none">▶</span>;
+const StopGlyph = () => <span className="text-xl leading-none">■</span>;
+
+export const SequencerTransport: Story = () => (
+  <div className="space-y-4 bg-gray-900 p-6 text-gray-100">
+    <StorySection title="Play / Stop — lg-icon size (sequencer transport)">
+      <p className="text-sm text-gray-400 mb-3">
+        The <code className="text-xs bg-gray-700 px-1 rounded">lg-icon</code> size enforces a fixed 48×48px frame with centred content.
+        Use it for icon-only buttons that need a prominent tap target without the rectangular padding of <code className="text-xs bg-gray-700 px-1 rounded">lg</code>.
+      </p>
+      <div className="flex items-center gap-4 rounded-xl border border-gray-700 bg-gray-800 p-4">
+        <Button variant="primary" size="lg-icon" icon={<PlayGlyph />} iconOnly aria-label="Play sequencer" />
+        <Button variant="primary" size="lg-icon" icon={<StopGlyph />} iconOnly aria-label="Stop sequencer" />
+        <Button variant="secondary" size="lg-icon" icon={<PlayGlyph />} iconOnly aria-label="Play (secondary)" />
+        <Button disabled variant="primary" size="lg-icon" icon={<PlayGlyph />} iconOnly aria-label="Play (disabled)" />
+      </div>
+      <p className="mt-3 text-xs text-gray-500">Compare with icon (32px) and circle (rounded-full) to verify centering consistency.</p>
+      <div className="flex items-center gap-4 mt-2">
+        <Button variant="ghost" size="icon" icon={<PlayGlyph />} iconOnly aria-label="icon size" title="size=icon (32px)" />
+        <Button variant="ghost" size="circle" icon={<PlayGlyph />} iconOnly aria-label="circle size" title="size=circle" />
+        <Button variant="ghost" size="lg-icon" icon={<PlayGlyph />} iconOnly aria-label="lg-icon size" title="size=lg-icon (48px)" />
+      </div>
+    </StorySection>
+  </div>
+);
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="Button"
+    usage={`<Button variant="primary" size="md" onClick={onSubmit}>
+  Submit
+</Button>`}
+    inputs={[
+      { name: "variant", type: "'primary' | 'secondary' | 'danger' | 'ghost'", required: false, defaultValue: "'secondary'", description: "Visual tone." },
+      { name: "size", type: "'sm' | 'md' | 'lg' | 'icon' | 'circle' | 'fab' | 'lg-icon'", required: false, defaultValue: "'md'", description: "Button size preset." },
+      { name: "icon", type: "ReactNode", required: false, description: "Optional icon content." },
+      { name: "iconOnly", type: "boolean", required: false, defaultValue: "false", description: "Renders icon without text label." },
+      { name: "disabled", type: "boolean", required: false, defaultValue: "false", description: "Disables click interaction." },
+    ]}
+  />
 );

@@ -188,7 +188,7 @@ export const Select: React.FC<SelectProps> = ({
           {({ open }) => (
             <div className="relative">
               <Listbox.Button ref={buttonRef} className={buttonClasses}>
-                <span className="flex items-center">
+                <span className="flex items-center pr-7">
                   {selectedOption?.icon && (
                     <span className="mr-2 shrink-0">{selectedOption.icon}</span>
                   )}

@@ -2,6 +2,7 @@ import React from "react";
 import { Meta, Story } from "@ladle/react";
 import { FieldLabel } from "./FieldLabel";
 import { RadioGroup } from "./RadioGroup";
+import { ComponentDocs } from "../foundation/ladleDocs";
 
 export default {
   title: "Primitives / RadioGroup",
@@ -29,4 +30,25 @@ export const DisabledGroup: Story = () => (
     <FieldLabel label="Render offline" description="Disabled while the engine is busy." />
     <RadioGroup name="offline-render" value="no" onChange={() => undefined} options={booleanOptions} disabled />
   </div>
+);
+
+export const Documentation: Story = () => (
+  <ComponentDocs
+    componentName="RadioGroup"
+    usage={`const [value, setValue] = React.useState("yes");
+
+<RadioGroup
+  name="quantize"
+  value={value}
+  onChange={setValue}
+  options={[{ label: "Yes", value: "yes" }, { label: "No", value: "no" }]}
+/>`}
+    inputs={[
+      { name: "name", type: "string", required: true, description: "Shared radio name for the group." },
+      { name: "value", type: "T", required: true, description: "Selected option value." },
+      { name: "onChange", type: "(value: T) => void", required: true, description: "Called when user selects an option." },
+      { name: "options", type: "RadioOption<T>[]", required: true, description: "List of available options." },
+      { name: "disabled", type: "boolean", required: false, defaultValue: "false", description: "Disables all options." },
+    ]}
+  />
 );
