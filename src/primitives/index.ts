@@ -34,8 +34,8 @@ export type { SheetProps, SheetSide } from './Sheet';
 export { Tabs } from './Tabs';
 export type { TabsProps, TabItem } from './Tabs';
 
-export { Slider } from './Slider';
-export type { SliderProps } from './Slider';
+export { Slider, SliderTrack, SliderThumb, useSliderGeometry } from './Slider';
+export type { SliderProps, SliderTrackProps, SliderThumbProps } from './Slider';
 
 export { Modal } from './Modal';
 export type { ModalProps } from './Modal';

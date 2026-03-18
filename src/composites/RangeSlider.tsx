@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
+import { SliderTrack, SliderThumb, useSliderGeometry } from '../primitives/Slider';
 
 export interface RangeSliderValue {
   min: number;
@@ -38,6 +39,7 @@ export const RangeSlider: React.FC<RangeSliderProps> = ({
 }) => {
   const [isDragging, setIsDragging] = useState<'min' | 'max' | null>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const { valueToPercentage, positionToValue } = useSliderGeometry({ min, max, step, trackRef });
 
   const safeValue = useMemo<RangeSliderValue>(() => {
     if (Array.isArray(value) && value.length === 2) {
@@ -50,24 +52,6 @@ export const RangeSlider: React.FC<RangeSliderProps> = ({
 
     return { min, max };
   }, [value, min, max]);
-
-  const valueToPercentage = useCallback((current: number) => ((current - min) / (max - min)) * 100, [min, max]);
-
-  const positionToValue = useCallback((clientX: number) => {
-    if (!trackRef.current) {
-      return min;
-    }
-
-    const rect = trackRef.current.getBoundingClientRect();
-    const percentage = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-    let next = min + percentage * (max - min);
-
-    if (step && step > 0) {
-      next = Math.round(next / step) * step;
-    }
-
-    return Math.max(min, Math.min(max, next));
-  }, [max, min, step]);
 
   const handleTrackClick = useCallback((event: React.MouseEvent) => {
     if (disabled || isDragging) {
@@ -130,14 +114,11 @@ export const RangeSlider: React.FC<RangeSliderProps> = ({
 
   return (
     <div className={className}>
-      <div
-        ref={trackRef}
-        className={[
-          'relative h-2 cursor-pointer rounded-full bg-gray-700',
-          disabled ? 'cursor-not-allowed opacity-50' : '',
-          trackClassName,
-        ].join(' ').trim()}
+      <SliderTrack
+        trackRef={trackRef}
         onClick={handleTrackClick}
+        disabled={disabled}
+        className={trackClassName}
       >
         <div
           className={['absolute h-2 rounded-full bg-cyan-600', activeTrackClassName].join(' ').trim()}
@@ -146,27 +127,19 @@ export const RangeSlider: React.FC<RangeSliderProps> = ({
             width: `${maxPercentage - minPercentage}%`,
           }}
         />
-
-        <div
-          className={[
-            'absolute top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-2 border-cyan-600 bg-white shadow-md cursor-grab',
-            disabled ? 'cursor-not-allowed opacity-50' : 'hover:scale-110',
-            isDragging === 'min' ? 'scale-125 cursor-grabbing ring-4 ring-cyan-500/30' : '',
-          ].join(' ').trim()}
-          style={{ left: `${minPercentage}%` }}
+        <SliderThumb
+          percentage={minPercentage}
           onMouseDown={(event) => handleMouseDown(event, 'min')}
+          isDragging={isDragging === 'min'}
+          disabled={disabled}
         />
-
-        <div
-          className={[
-            'absolute top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-2 border-cyan-600 bg-white shadow-md cursor-grab',
-            disabled ? 'cursor-not-allowed opacity-50' : 'hover:scale-110',
-            isDragging === 'max' ? 'scale-125 cursor-grabbing ring-4 ring-cyan-500/30' : '',
-          ].join(' ').trim()}
-          style={{ left: `${maxPercentage}%` }}
+        <SliderThumb
+          percentage={maxPercentage}
           onMouseDown={(event) => handleMouseDown(event, 'max')}
+          isDragging={isDragging === 'max'}
+          disabled={disabled}
         />
-      </div>
+      </SliderTrack>
     </div>
   );
 };

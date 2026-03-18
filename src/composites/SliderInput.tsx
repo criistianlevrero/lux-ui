@@ -4,7 +4,7 @@ import { Slider } from '../primitives';
 export interface SliderInputProps {
   label: string;
   value: number;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (value: number) => void;
   min: number;
   max: number;
   step: number;
