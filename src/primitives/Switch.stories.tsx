@@ -57,7 +57,7 @@ export const DisabledState: Story = () => (
   </div>
 );
 
-export const Documentation: Story = () => (
+export const _01Documentation: Story = () => (
   <ComponentDocs
     componentName="Switch"
     usage={`const [enabled, setEnabled] = React.useState(false);

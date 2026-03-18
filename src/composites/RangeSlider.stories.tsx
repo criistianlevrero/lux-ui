@@ -47,7 +47,7 @@ export const PresetRanges: Story = () => {
   );
 };
 
-export const Documentation: Story = () => (
+export const _01Documentation: Story = () => (
   <ComponentDocs
     componentName="RangeSlider"
     usage={`const [range, setRange] = React.useState({ min: 20, max: 80 });

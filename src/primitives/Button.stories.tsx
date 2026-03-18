@@ -250,7 +250,7 @@ export const SequencerTransport: Story = () => (
   </div>
 );
 
-export const Documentation: Story = () => (
+export const _01Documentation: Story = () => (
   <ComponentDocs
     componentName="Button"
     usage={`<Button variant="primary" size="md" onClick={onSubmit}>

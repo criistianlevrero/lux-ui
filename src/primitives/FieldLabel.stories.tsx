@@ -26,7 +26,7 @@ export const DetailedControlLabel: Story = () => (
   </div>
 );
 
-export const Documentation: Story = () => (
+export const _01Documentation: Story = () => (
   <ComponentDocs
     componentName="FieldLabel"
     usage={`<FieldLabel

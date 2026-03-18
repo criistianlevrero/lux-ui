@@ -23,7 +23,7 @@ export const SettingsStack: Story = () => (
   </div>
 );
 
-export const Documentation: Story = () => (
+export const _01Documentation: Story = () => (
   <ComponentDocs
     componentName="CollapsibleSection"
     usage={`<CollapsibleSection title="Renderer controls" defaultOpen>

@@ -20,7 +20,7 @@ export const BpmControl: Story = () => {
         max={200}
         step={1}
         valueFormatter={(current) => `${current}`}
-        onChange={(event) => setValue(Number(event.target.value))}
+        onChange={setValue}
       />
     </div>
   );
@@ -38,13 +38,13 @@ export const InterpolationControl: Story = () => {
         max={1}
         step={0.05}
         valueFormatter={(current) => (current === 0 ? "Instant" : `${current.toFixed(2)}s`)}
-        onChange={(event) => setValue(Number(event.target.value))}
+        onChange={setValue}
       />
     </div>
   );
 };
 
-export const Documentation: Story = () => (
+export const _01Documentation: Story = () => (
   <ComponentDocs
     componentName="SliderInput"
     usage={`const [value, setValue] = React.useState(128);
@@ -55,12 +55,12 @@ export const Documentation: Story = () => (
   min={60}
   max={200}
   step={1}
-  onChange={(event) => setValue(Number(event.target.value))}
+  onChange={setValue}
 />`}
     inputs={[
       { name: "label", type: "string", required: true, description: "Field label text." },
       { name: "value", type: "number", required: true, description: "Current slider value." },
-      { name: "onChange", type: "(event) => void", required: true, description: "Change callback from internal slider." },
+      { name: "onChange", type: "(value: number) => void", required: true, description: "Called with the new numeric value when the slider changes." },
       { name: "min/max/step", type: "number", required: true, description: "Slider numeric range configuration." },
       { name: "valueFormatter", type: "(value: number) => string", required: false, description: "Custom right-side value text." },
     ]}

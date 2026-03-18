@@ -67,7 +67,7 @@ export const NativeOptions: Story = () => {
   );
 };
 
-export const Documentation: Story = () => (
+export const _01Documentation: Story = () => (
   <ComponentDocs
     componentName="Select"
     usage={`const [value, setValue] = React.useState("webgl");

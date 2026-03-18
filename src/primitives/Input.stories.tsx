@@ -51,7 +51,7 @@ export const Focus: Story<typeof Input> = () => (
   </div>
 );
 
-export const Documentation: Story = () => (
+export const _01Documentation: Story = () => (
   <ComponentDocs
     componentName="Input"
     usage={`const [value, setValue] = React.useState("");

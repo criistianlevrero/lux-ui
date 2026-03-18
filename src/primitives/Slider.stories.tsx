@@ -20,7 +20,7 @@ export const TransportControl: Story = () => {
           <FieldLabel label="BPM" size="xs" />
           <span className="rounded bg-gray-700 px-2 py-1 font-mono text-sm text-cyan-300">{value}</span>
         </div>
-        <Slider min={60} max={200} step={1} value={value} onChange={(event) => setValue(Number(event.target.value))} />
+        <Slider min={60} max={200} step={1} value={value} onChange={setValue} />
       </div>
     </Card>
   );
@@ -38,13 +38,13 @@ export const InterpolationSpeed: Story = () => {
             {value === 0 ? "Instant" : `${value.toFixed(2)}s`}
           </span>
         </div>
-        <Slider min={0} max={1} step={0.05} value={value} onChange={(event) => setValue(Number(event.target.value))} />
+        <Slider min={0} max={1} step={0.05} value={value} onChange={setValue} />
       </div>
     </Card>
   );
 };
 
-export const Documentation: Story = () => (
+export const _01Documentation: Story = () => (
   <ComponentDocs
     componentName="Slider"
     usage={`const [value, setValue] = React.useState(120);
@@ -54,11 +54,11 @@ export const Documentation: Story = () => (
   max={200}
   step={1}
   value={value}
-  onChange={(event) => setValue(Number(event.target.value))}
+  onChange={setValue}
 />`}
     inputs={[
-      { name: "value", type: "number | string", required: false, description: "Current slider value." },
-      { name: "onChange", type: "(event) => void", required: false, description: "Callback for value updates." },
+      { name: "value", type: "number", required: true, description: "Current slider value." },
+      { name: "onChange", type: "(value: number) => void", required: true, description: "Callback called with the new numeric value." },
       { name: "min", type: "number", required: false, description: "Minimum allowed value." },
       { name: "max", type: "number", required: false, description: "Maximum allowed value." },
       { name: "step", type: "number", required: false, description: "Increment resolution." },

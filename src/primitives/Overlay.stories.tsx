@@ -26,7 +26,7 @@ export const ClickToDismiss: Story = () => {
   );
 };
 
-export const Documentation: Story = () => (
+export const _01Documentation: Story = () => (
   <ComponentDocs
     componentName="Overlay"
     usage={`<Overlay isVisible={isOpen} onClick={() => setIsOpen(false)} zIndex={40} />`}

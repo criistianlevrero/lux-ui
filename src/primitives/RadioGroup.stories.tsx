@@ -32,7 +32,7 @@ export const DisabledGroup: Story = () => (
   </div>
 );
 
-export const Documentation: Story = () => (
+export const _01Documentation: Story = () => (
   <ComponentDocs
     componentName="RadioGroup"
     usage={`const [value, setValue] = React.useState("yes");

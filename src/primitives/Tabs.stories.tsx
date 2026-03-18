@@ -27,7 +27,7 @@ export const DebugOverlayTabs: Story = () => {
   );
 };
 
-export const Documentation: Story = () => (
+export const _01Documentation: Story = () => (
   <ComponentDocs
     componentName="Tabs"
     usage={`const [active, setActive] = React.useState("stats");

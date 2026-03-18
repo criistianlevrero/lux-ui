@@ -20,7 +20,7 @@ export const DashboardTiles: Story = () => (
   </div>
 );
 
-export const Documentation: Story = () => (
+export const _01Documentation: Story = () => (
   <ComponentDocs
     componentName="Grid"
     usage={`<Grid columns={{ md: 2, xl: 3 }} gap="1rem">

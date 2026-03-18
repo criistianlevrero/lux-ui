@@ -38,7 +38,7 @@ export const MultiSelectTags: Story = () => {
   );
 };
 
-export const Documentation: Story = () => (
+export const _01Documentation: Story = () => (
   <ComponentDocs
     componentName="AdvancedSelect"
     usage={`const [value, setValue] = React.useState("blend");

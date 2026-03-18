@@ -29,7 +29,7 @@ export const LongCopy: Story = () => (
   </div>
 );
 
-export const Documentation: Story = () => (
+export const _01Documentation: Story = () => (
   <ComponentDocs
     componentName="Tooltip"
     usage={`<Tooltip content="Additional help text">

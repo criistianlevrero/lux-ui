@@ -40,7 +40,7 @@ export const States: Story = () => {
   );
 };
 
-export const Documentation: Story = () => (
+export const _01Documentation: Story = () => (
   <ComponentDocs
     componentName="Checkbox"
     usage={`const [checked, setChecked] = React.useState(false);

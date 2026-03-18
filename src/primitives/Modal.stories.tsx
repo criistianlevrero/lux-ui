@@ -30,7 +30,7 @@ export const Default: Story<typeof Modal> = () => {
   );
 };
 
-export const Documentation: Story = () => (
+export const _01Documentation: Story = () => (
   <ComponentDocs
     componentName="Modal"
     usage={`const [open, setOpen] = React.useState(false);

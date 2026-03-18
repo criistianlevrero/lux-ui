@@ -45,7 +45,7 @@ export const SequencerStepGroups: Story = () => {
   );
 };
 
-export const Documentation: Story = () => (
+export const _01Documentation: Story = () => (
   <ComponentDocs
     componentName="SegmentedGroup"
     usage={`<SegmentedGroup>

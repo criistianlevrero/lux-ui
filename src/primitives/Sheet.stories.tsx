@@ -49,7 +49,7 @@ export const BottomConsole: Story = () => {
   );
 };
 
-export const Documentation: Story = () => (
+export const _01Documentation: Story = () => (
   <ComponentDocs
     componentName="Sheet"
     usage={`<Sheet open={open} side="left" className="w-full max-w-md">
