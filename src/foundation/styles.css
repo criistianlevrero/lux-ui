@@ -1,3 +1,13 @@
+/*
+ * Le dice a Tailwind que escanee los componentes compilados de este paquete,
+ * para que las clases que usan los componentes existan en el CSS del consumidor.
+ *
+ * La ruta es relativa a ESTE archivo, así que resuelve igual si el paquete se
+ * consume linkeado desde un workspace o instalado desde npm. Declararlo acá y no
+ * en el consumidor evita que cada app tenga que adivinar dónde quedó el paquete.
+ */
+@source '../../dist/**/*.{js,cjs,mjs}';
+
 :root {
   --lux-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
