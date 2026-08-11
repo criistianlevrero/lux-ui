@@ -1,3 +1,15 @@
+> **Estado**: CON DRIFT VERIFICADO · **Fecha original**: sin fechar · **Última verificación**: 2026-08-11
+>
+> ⚠️ **No es trabajo planeado**: es un informe de estado, mal ubicado en `next-steps/`.
+> Su contenido tiene drift confirmado — ver
+> [../auditoria/2026-08-11-auditoria-lux-ui.md](../auditoria/2026-08-11-auditoria-lux-ui.md)
+> § 3, filas D13–D16. En particular: DaisyUI ya no cubre a ningún componente, la lista de stories
+> de composites está incompleta (4 de 7), y "nada bloqueante" es falso — el test visual que este
+> documento describe **falla**.
+>
+> El contenido de abajo se conserva sin editar, según la regla del `CLAUDE.md` de la raíz.
+> El saneamiento está en [ladle-saneamiento.md](ladle-saneamiento.md).
+
 # Estado de implementación de Ladle en lux-ui
 
 ## Resumen
