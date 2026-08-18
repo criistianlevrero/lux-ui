@@ -5,32 +5,28 @@ Librería de componentes agnósticos de LuxSequencer para reutilizar en:
 - proyecto de gestión de sets grabados
 - marketplace
 
-## Orquestación y uso en el monorepo LuxSequencer
+## Dónde encaja este repo
 
-Esta librería forma parte de la arquitectura de LuxSequencer, junto a:
+`lux-ui` es la librería de componentes compartidos del ecosistema LuxSequencer, publicada como
+**`@luxsequencer/ui`** en npm público (`0.1.0`, MIT). La consumen `luxsequencer-core` y
+`luxsequencer-cloud`.
 
-- **luxsequencer-core**: App principal
-- **core-renderers**: Renderers oficiales
-- **luxsequencer-cloud**: Plataforma cloud y marketplace
+**La orquestación del ecosistema —topología, instalación, resolución de dependencias— vive en el
+README del workspace, no acá.** Este repo se puede clonar y desarrollar suelto: no depende de
+ninguno de los otros.
 
-### Instalación y enlace local
+### Consumirla
 
-1. Instala dependencias:
-   ```bash
-   npm install
-   ```
-2. Compila la librería para desarrollo local:
-   ```bash
-   npm run build # o npm link
-   ```
-3. En los proyectos que consumen lux-ui (core, cloud):
-   ```bash
-   npm link lux-ui # o usa path local en package.json
-   ```
+```json
+"@luxsequencer/ui": "^0.1.0"
+```
 
-> Mantén adapters locales por app para i18n, analytics y side-effects.
+Nada de `npm link`. Dentro del workspace npm enlaza la carpeta local; fuera, baja del registro.
 
----
+> **Se consume desde `dist/`, no desde `src/`.** El script `prepare` la recompila en cada
+> `npm install`, pero si editás las fuentes en caliente hay que rebuildear para que el consumidor
+> vea el cambio.
+
 ## Objetivo
 Centralizar primitives/composites/patterns visuales sin lógica de dominio (MIDI, store de app, renderer config específica).
 
@@ -40,41 +36,37 @@ Centralizar primitives/composites/patterns visuales sin lógica de dominio (MIDI
 - Theming por tokens y utilidades Tailwind.
 - Accesibilidad como requisito de entrada.
 
-## Estructura objetivo
+## Estructura
+
 ```text
 lux-ui/
 ├── src/
-│   ├── primitives/
-│   ├── composites/
-│   ├── patterns/
-│   ├── foundation/
+│   ├── primitives/     bloques base de formulario y superficie
+│   ├── composites/     componentes de mayor complejidad
+│   ├── foundation/     tokens y CSS
 │   ├── icons/
+│   ├── test/
 │   └── index.ts
 ├── package.json
-├── tsconfig.json
-├── MIGRATION_PLAN.md
-└── README.md
+└── tsconfig.json
 ```
 
-## Alcance inicial de extracción
-### Incluir primero
-- `primitives`: Button, Input, Textarea, Select, Switch, Checkbox, RadioGroup, Tooltip, FieldLabel, Card, Sheet, Tabs, Slider
-- `foundation`: tokens
+**No hay capa `patterns/`.** Una versión anterior de este README la listaba como estructura
+objetivo; la evaluación de qué patterns entran, y con qué criterio, está abierta en
+[`docs/next-steps/patterns-evaluacion.md`](docs/next-steps/patterns-evaluacion.md).
 
-### Incluir después
-- `composites`: AdvancedSelect, RangeSlider, SliderInput, CollapsibleSection
+## Alcance
 
-### Evaluar por acoplamiento visual/contextual
-- `patterns`: Alert, EmptyState, ErrorState, MetricCard, MiniChartCard, PanelHeader, StatTile, SequencerCell
-- `composites`: ColorPicker, Vector2DPicker
+Qué entra en la librería y qué no —y por qué el CSS se parte en tres— es una decisión tomada y
+documentada:
+[`docs/decisiones/2026-08-11-alcance-de-la-libreria.md`](docs/decisiones/2026-08-11-alcance-de-la-libreria.md).
 
-## No incluir en lux-ui
-- Componentes con lógica de dominio de `src/components/controls` o que dependan de store/app context.
+En corto: componentes visuales sin lógica de dominio. Nada que dependa del store, de MIDI o del
+contexto de una app concreta.
 
-## Integración sugerida
-1. Publicar `@luxsequencer/ui`.
-2. Consumir desde `luxsequencer-core` como dependencia normal.
-3. Mantener adapters locales por app para i18n, analytics y side-effects.
+> `MIGRATION_PLAN.md`, en la raíz de este repo, describe la extracción desde `luxsequencer-core`.
+> **Está desactualizado hacia atrás**: marca como pendientes tareas ya hechas. Ver
+> [`docs/auditoria/2026-08-06-drift-migration-plan.md`](docs/auditoria/2026-08-06-drift-migration-plan.md).
 
 ## Documentación en Ladle (template automático)
 
